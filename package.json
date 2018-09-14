@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "populate": "node scripts/populate.js"
+    "populate": "node scripts/populate.js",
+    "start": "node index"
   },
   "author": "",
   "license": "ISC",
