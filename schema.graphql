@@ -1,9 +1,9 @@
 type Query {
-  users: [ User ],
+  users(skip: Int, limit: Int): [ User ],
   user(_id: ID!): User,
-  addresses: [ Address ],
+  addresses(skip: Int, limit: Int): [ Address ],
   address(_id: ID!): Address,
-  cities: [ City ],
+  cities(skip: Int, limit: Int): [ City ],
   city(_id: ID!): City
 }
 
