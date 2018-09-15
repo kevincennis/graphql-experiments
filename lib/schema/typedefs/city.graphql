@@ -1,0 +1,34 @@
+# import User from 'user.graphql'
+# import Address from 'address.graphql'
+# import Date, ObjectId from 'scalars.graphql'
+
+"""
+A city recrd
+"""
+type City {
+  "Primary key"
+  _id: ObjectId!,
+  "City name"
+  name: String,
+  "State"
+  state: String,
+  "Addresses in this city"
+  addresses: [ Address ],
+  "Record creation date"
+  created: Date,
+  "Record last updated date"
+  updated: Date
+}
+
+type Query {
+  "Find cities"
+  cities(skip: Int, limit: Int): [ City ],
+
+  "Find a city by _id"
+  city(_id: ObjectId!): City
+}
+
+type Mutation {
+  "Create a city"
+  createCity(name: String, state: String): City
+}

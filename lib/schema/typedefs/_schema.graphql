@@ -1,0 +1,3 @@
+# import Query.*, Mutation.* from "user.graphql"
+# import Query.*, Mutation.* from "address.graphql"
+# import Query.*, Mutation.* from "city.graphql"

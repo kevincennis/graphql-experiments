@@ -1,0 +1,41 @@
+# import Address from 'address.graphql'
+# import Date, ObjectId from 'scalars.graphql'
+
+"""
+A user record
+"""
+type User {
+  "Primary key"
+  _id: ObjectId!,
+
+  "Full name"
+  name: String,
+
+  "Email address"
+  email: String,
+
+  "Address foreign key"
+  address_id: ObjectId,
+
+  "Address"
+  address: Address,
+
+  "Record creation date"
+  created: Date,
+
+  "Record last updated date"
+  updated: Date
+}
+
+type Query {
+  "Find users"
+  users(skip: Int, limit: Int): [ User ],
+
+  "Find a user by _id"
+  user(_id: ObjectId!): User
+}
+
+type Mutation {
+  "Create a user"
+  createUser(name: String, email: String, address_id: ObjectId): User
+}
