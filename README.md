@@ -19,16 +19,20 @@ query {
     _id,
     name,
     email,
-    address_id,
+    created,
+    updated,
     address {
       _id,
       house_number,
       street,
-      city_id,
+      created,
+      updated,
       city {
         _id,
         name,
-        state
+        state,
+        created,
+        updated
       },
       residents {
         _id,
@@ -48,12 +52,15 @@ mutation {
     _id,
     name,
     email,
-    address_id,
+    created,
+    updated,
     address {
       _id
       house_number
       street
-      city_id
+      city_id,
+      created,
+      updated
     }
   }
 }
