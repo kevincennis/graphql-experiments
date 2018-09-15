@@ -29,16 +29,46 @@ type User {
 
 type Query {
   "Find users"
-  users(skip: Int, limit: Int): [ User ],
+  users(
+    "Pagination offset"
+    skip: Int,
+
+    "Pagination limit"
+    limit: Int
+  ): [ User ],
 
   "Find a user by _id"
-  user(_id: ObjectId!): User
+  user(
+    "Primary key"
+    _id: ObjectId!
+  ): User
 }
 
 type Mutation {
   "Create a user"
-  createUser(name: String, email: String, address_id: ObjectId): User,
+  createUser(
+    "Full name"
+    name: String,
+
+    "Email address"
+    email: String,
+
+    "Address foreign key"
+    address_id: ObjectId
+  ): User,
 
   "Update a user"
-  updateUser(_id: ObjectId!, name: String, email: String, address_id: ObjectId): User
+  updateUser(
+    "Primary key"
+    _id: ObjectId!,
+
+    "Full name"
+    name: String,
+
+    "Email address"
+    email: String,
+
+    "Address primary key"
+    address_id: ObjectId
+  ): User
 }

@@ -8,30 +8,59 @@ A city recrd
 type City {
   "Primary key"
   _id: ObjectId!,
+
   "City name"
   name: String,
+
   "State"
   state: String,
+
   "Addresses in this city"
   addresses: [ Address ],
+
   "Record creation date"
   created: Date,
+
   "Record last updated date"
   updated: Date
 }
 
 type Query {
   "Find cities"
-  cities(skip: Int, limit: Int): [ City ],
+  cities(
+    "Pagination offset"
+    skip: Int,
+
+    "Pagination limit"
+    limit: Int
+  ): [ City ],
 
   "Find a city by _id"
-  city(_id: ObjectId!): City
+  city(
+    "Primary key"
+    _id: ObjectId!
+  ): City
 }
 
 type Mutation {
   "Create a city"
-  createCity(name: String, state: String): City,
+  createCity(
+    "City name"
+    name: String,
+
+    "State"
+    state: String
+  ): City,
 
   "Update a city"
-  updateCity(_id: ObjectId!, name: String, state: String): City
+  updateCity(
+    "Primary key"
+    _id: ObjectId!,
+
+    "City name"
+    name: String,
+
+    "State"
+    state: String
+  ): City
 }
