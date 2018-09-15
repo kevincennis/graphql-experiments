@@ -34,6 +34,7 @@ type Mutation {
   createUser(name: String, email: String, address_id: ObjectId): User
 }
 
+# Custom scalar types
 scalar Date
 scalar ObjectId
 
@@ -57,12 +58,21 @@ type User {
   updated: Date
 }
 
+"""
+An address recrd
+"""
 type Address {
+  "Primary key"
   _id: ObjectId!,
+  "House number"
   house_number: String,
+  "Street name"
   street: String,
+  "City foreign key"
   city_id: ObjectId,
+  "City"
   city: City,
+  "Users who live at the this address"
   residents: [ User ],
   "Record creation date"
   created: Date,
@@ -70,10 +80,17 @@ type Address {
   updated: Date
 }
 
+"""
+A city record
+"""
 type City {
+  "Primary key"
   _id: ObjectId!,
+  "City name"
   name: String,
+  "State"
   state: String,
+  "Addresses in this city"
   addresses: [ Address ],
   "Record creation date"
   created: Date,
