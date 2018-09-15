@@ -33,5 +33,8 @@ type Query {
 
 type Mutation {
   "Create an address"
-  createAddress(house_number: String, street: String, city_id: ObjectId): Address
+  createAddress(house_number: String, street: String, city_id: ObjectId): Address,
+
+  "Update an address"
+  updateAddress(_id: ObjectId!, house_number: String, street: String, city_id: ObjectId): Address
 }

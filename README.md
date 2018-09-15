@@ -11,7 +11,7 @@ Navigate to http://localhost:4000/graphql
 
 ### Usage
 
-Running a query:
+##### Get a User by ID:
 
 ```graphql
 query {
@@ -44,7 +44,40 @@ query {
 }
 ```
 
-Running a mutation:
+##### Get users with pagination
+
+```graphql
+query {
+  users(skip: 1, limit: 1) {
+    _id,
+    name,
+    email,
+    created,
+    updated,
+    address {
+      _id,
+      house_number,
+      street,
+      created,
+      updated,
+      city {
+        _id,
+        name,
+        state,
+        created,
+        updated
+      },
+      residents {
+        _id,
+        name,
+        email
+      }
+    }
+  }
+}
+```
+
+##### Create a user
 
 ```graphql
 mutation {
@@ -52,6 +85,29 @@ mutation {
     _id,
     name,
     email,
+    created,
+    updated,
+    address {
+      _id
+      house_number
+      street
+      city_id,
+      created,
+      updated
+    }
+  }
+}
+```
+
+##### Update a user
+
+```graphql
+mutation {
+  updateUser(_id: "300000000000000000000000", name: "New Name") {
+    _id,
+    name,
+    email,
+    address_id,
     created,
     updated,
     address {

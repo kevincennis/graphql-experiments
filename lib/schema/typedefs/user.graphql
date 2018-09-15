@@ -37,5 +37,8 @@ type Query {
 
 type Mutation {
   "Create a user"
-  createUser(name: String, email: String, address_id: ObjectId): User
+  createUser(name: String, email: String, address_id: ObjectId): User,
+
+  "Update a user"
+  updateUser(_id: ObjectId!, name: String, email: String, address_id: ObjectId): User
 }
