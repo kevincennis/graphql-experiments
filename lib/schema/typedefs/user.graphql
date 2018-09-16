@@ -1,5 +1,6 @@
 # import Address from 'address.graphql'
 # import * from 'scalars.graphql'
+# import * from 'directives.graphql'
 
 """
 A user record
@@ -13,6 +14,9 @@ type User {
 
   "Email address"
   email: Email,
+
+  "Example of a deprecated field"
+  whatever: String @deprecated(reason: "You sux"),
 
   "Address foreign key"
   address_id: ObjectId,
