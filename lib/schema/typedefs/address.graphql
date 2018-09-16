@@ -32,7 +32,7 @@ type Address {
 
 type Query {
   "Find addresses"
-  addresses(
+  getAddresses(
     "Pagination offset"
     skip: Int,
 
@@ -41,7 +41,7 @@ type Query {
   ): [ Address ],
 
   "Find an address by _id"
-  address(
+  getAddress(
     "Primary key"
     _id: ObjectId!
   ): Address

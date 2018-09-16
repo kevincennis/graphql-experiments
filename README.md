@@ -15,7 +15,7 @@ Navigate to http://localhost:4000/graphql
 
 ```graphql
 query {
-  user(_id:"300000000000000000000000") {
+  getUser(_id:"300000000000000000000000") {
     _id,
     name,
     email,
@@ -48,7 +48,7 @@ query {
 
 ```graphql
 query {
-  users(skip: 1, limit: 1) {
+  getUsers(skip: 1, limit: 1) {
     _id,
     name,
     email,

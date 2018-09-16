@@ -27,7 +27,7 @@ type City {
 
 type Query {
   "Find cities"
-  cities(
+  getCities(
     "Pagination offset"
     skip: Int,
 
@@ -36,7 +36,7 @@ type Query {
   ): [ City ],
 
   "Find a city by _id"
-  city(
+  getCity(
     "Primary key"
     _id: ObjectId!
   ): City
