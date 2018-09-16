@@ -1,6 +1,6 @@
 # import User from 'user.graphql'
 # import Address from 'address.graphql'
-# import Date, ObjectId from 'scalars.graphql'
+# import * from 'scalars.graphql'
 
 """
 A city recrd
