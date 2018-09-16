@@ -1,0 +1,65 @@
+# import City from 'city.graphql'
+# import * from 'scalars.graphql'
+
+"""
+A state recrd
+"""
+type State {
+  "Primary key"
+  _id: ObjectId!,
+
+  "Abbreviated name"
+  name_short: StateAbbreviation,
+
+  "Long Name"
+  name_long: String,
+
+  "Cities"
+  cities: [ City ],
+
+  "Record creation date"
+  created: Date,
+
+  "Record last updated date"
+  updated: Date
+}
+
+type Query {
+  "Find states"
+  getStates(
+    "Pagination offset"
+    skip: Int,
+
+    "Pagination limit"
+    limit: Int
+  ): [ State ],
+
+  "Find a state by _id"
+  getState(
+    "Primary key"
+    _id: ObjectId!
+  ): State
+}
+
+type Mutation {
+  "Create a state"
+  createState(
+    "Abbreviated name"
+    name_short: StateAbbreviation,
+
+    "Long name"
+    name_long: String
+  ): State,
+
+  "Update a state"
+  updateState(
+    "Primary key"
+    _id: ObjectId!,
+
+    "Abbreviated name"
+    name_short: StateAbbreviation,
+
+    "Long name"
+    name_long: String
+  ): State
+}

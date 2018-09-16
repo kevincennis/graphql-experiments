@@ -1,3 +1,4 @@
 scalar Date
 scalar ObjectId
 scalar Email
+scalar StateAbbreviation

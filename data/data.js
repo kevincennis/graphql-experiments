@@ -39,12 +39,24 @@ module.exports = {
     {
       "_id": ObjectId("300000000000000000000005"),
       "name": "Boston",
-      "state": "MA"
+      "state_id": ObjectId("300000000000000000000007")
     },
     {
       "_id": ObjectId("300000000000000000000006"),
       "name": "New York",
-      "state": "NY"
+      "state_id": ObjectId("300000000000000000000008")
+    }
+  ],
+  "states": [
+    {
+      "_id": ObjectId("300000000000000000000007"),
+      "name_short": "MA",
+      "name_long": "Massachusetts"
+    },
+    {
+      "_id": ObjectId("300000000000000000000008"),
+      "name_short": "NY",
+      "name_long": "New York"
     }
   ]
 }

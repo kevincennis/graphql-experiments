@@ -48,13 +48,13 @@ type Mutation {
   "Create a user"
   createUser(
     "Full name"
-    name: String,
+    name: String!,
 
     "Email address"
-    email: Email,
+    email: Email!,
 
     "Address foreign key"
-    address_id: ObjectId
+    address_id: ObjectId!
   ): User,
 
   "Update a user"

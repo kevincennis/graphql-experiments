@@ -30,9 +30,13 @@ query {
       city {
         _id,
         name,
-        state,
         created,
-        updated
+        updated,
+        state {
+          _id,
+          name_short,
+          name_long
+        }
       },
       residents {
         _id,
@@ -63,9 +67,13 @@ query {
       city {
         _id,
         name,
-        state,
         created,
-        updated
+        updated,
+        state {
+          _id,
+          name_short,
+          name_long
+        }
       },
       residents {
         _id,

@@ -51,13 +51,13 @@ type Mutation {
   "Create an address"
   createAddress(
     "House number"
-    house_number: String,
+    house_number: String!,
 
     "Street name"
-    street: String,
+    street: String!,
 
     "City foreign key"
-    city_id: ObjectId
+    city_id: ObjectId!
   ): Address,
 
   "Update an address"
