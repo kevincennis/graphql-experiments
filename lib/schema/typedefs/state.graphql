@@ -45,10 +45,10 @@ type Mutation {
   "Create a state"
   createState(
     "Abbreviated name"
-    name_short: StateAbbreviation,
+    name_short: StateAbbreviation!,
 
     "Long name"
-    name_long: String
+    name_long: String!
   ): State,
 
   "Update a state"
