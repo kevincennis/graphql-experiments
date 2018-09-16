@@ -15,7 +15,7 @@ Navigate to http://localhost:4000/graphql
 
 ```graphql
 query {
-  getUser(_id:"300000000000000000000000") {
+  getUser( _id:"300000000000000000000000" ) {
     _id,
     name,
     email,
@@ -52,7 +52,7 @@ query {
 
 ```graphql
 query {
-  getUsers(skip: 1, limit: 1) {
+  getUsers( skip: 1, limit: 1 ) {
     _id,
     name,
     email,
@@ -89,7 +89,7 @@ query {
 
 ```graphql
 mutation {
-  createUser(name:"Joe", email: "joe@foo.com", address_id: "300000000000000000000003") {
+  createUser( fields: { name: "Joe", email: "joe@foo.com", address_id: "300000000000000000000003" } ) {
     _id,
     name,
     email,
@@ -111,7 +111,7 @@ mutation {
 
 ```graphql
 mutation {
-  updateUser(_id: "300000000000000000000000", name: "New Name") {
+  updateUser( _id: "300000000000000000000000", fields: { name: "New Name" } ) {
     _id,
     name,
     email,

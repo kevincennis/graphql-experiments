@@ -24,6 +24,22 @@ type State {
   updated: Date
 }
 
+input CreateStateInput {
+  "Abbreviated name"
+  name_short: StateAbbreviation!,
+
+  "Long name"
+  name_long: String!
+}
+
+input UpdateStateInput {
+  "Abbreviated name"
+  name_short: StateAbbreviation,
+
+  "Long name"
+  name_long: String
+}
+
 type Query {
   "Find states"
   getStates(
@@ -44,11 +60,8 @@ type Query {
 type Mutation {
   "Create a state"
   createState(
-    "Abbreviated name"
-    name_short: StateAbbreviation!,
-
-    "Long name"
-    name_long: String!
+    "State fields"
+    fields: CreateStateInput!
   ): State,
 
   "Update a state"
@@ -56,10 +69,7 @@ type Mutation {
     "Primary key"
     _id: ObjectId!,
 
-    "Abbreviated name"
-    name_short: StateAbbreviation,
-
-    "Long name"
-    name_long: String
+    "State fields"
+    fields: UpdateStateInput!
   ): State
 }

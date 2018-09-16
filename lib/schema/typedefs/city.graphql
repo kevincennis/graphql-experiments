@@ -28,6 +28,22 @@ type City {
   updated: Date
 }
 
+input CreateCityInput {
+  "City name"
+  name: String!,
+
+  "State foreign key"
+  state_id: ObjectId!
+}
+
+input UpdateCityInput {
+  "City name"
+  name: String,
+
+  "State foreign key"
+  state_id: ObjectId
+}
+
 type Query {
   "Find cities"
   getCities(
@@ -48,11 +64,8 @@ type Query {
 type Mutation {
   "Create a city"
   createCity(
-    "City name"
-    name: String!,
-
-    "State foreign key"
-    state_id: ObjectId!
+    "City fields"
+    fields: CreateCityInput!
   ): City,
 
   "Update a city"
@@ -60,10 +73,7 @@ type Mutation {
     "Primary key"
     _id: ObjectId!,
 
-    "City name"
-    name: String,
-
-    "State foreign key"
-    state_id: ObjectId
+    "City fields"
+    fields: UpdateCityInput!
   ): City
 }

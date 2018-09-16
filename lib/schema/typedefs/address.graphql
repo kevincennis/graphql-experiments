@@ -30,6 +30,28 @@ type Address {
   updated: Date
 }
 
+input CreateAddressInput {
+  "House number"
+  house_number: String!,
+
+  "Street name"
+  street: String!,
+
+  "City foreign key"
+  city_id: ObjectId!
+}
+
+input UpdateAddressInput {
+  "House number"
+  house_number: String,
+
+  "Street name"
+  street: String,
+
+  "City foreign key"
+  city_id: ObjectId
+}
+
 type Query {
   "Find addresses"
   getAddresses(
@@ -50,14 +72,8 @@ type Query {
 type Mutation {
   "Create an address"
   createAddress(
-    "House number"
-    house_number: String!,
-
-    "Street name"
-    street: String!,
-
-    "City foreign key"
-    city_id: ObjectId!
+    "Address fields"
+    fields: CreateAddressInput!
   ): Address,
 
   "Update an address"
@@ -65,13 +81,7 @@ type Mutation {
     "Primary key"
     _id: ObjectId!,
 
-    "House number"
-    house_number: String,
-
-    "Street name"
-    street: String,
-
-    "City foreign key"
-    city_id: ObjectId
+    "Address fields"
+    fields: UpdateAddressInput!
   ): Address
 }

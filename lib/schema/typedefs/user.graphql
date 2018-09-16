@@ -27,6 +27,28 @@ type User {
   updated: Date
 }
 
+input CreateUserInput {
+  "Full name"
+  name: String!,
+
+  "Email address"
+  email: Email!,
+
+  "Address foreign key"
+  address_id: ObjectId!
+}
+
+input UpdateUserInput {
+  "Full name"
+  name: String,
+
+  "Email address"
+  email: Email,
+
+  "Address foreign key"
+  address_id: ObjectId
+}
+
 type Query {
   "Find users"
   getUsers(
@@ -47,14 +69,8 @@ type Query {
 type Mutation {
   "Create a user"
   createUser(
-    "Full name"
-    name: String!,
-
-    "Email address"
-    email: Email!,
-
-    "Address foreign key"
-    address_id: ObjectId!
+    "User fields"
+    fields: CreateUserInput!
   ): User,
 
   "Update a user"
@@ -62,13 +78,7 @@ type Mutation {
     "Primary key"
     _id: ObjectId!,
 
-    "Full name"
-    name: String,
-
-    "Email address"
-    email: Email,
-
-    "Address primary key"
-    address_id: ObjectId
+    "User fields"
+    fields: UpdateUserInput!
   ): User
 }
