@@ -1,5 +1,5 @@
 # import Address from 'address.graphql'
-# import Date, ObjectId from 'scalars.graphql'
+# import * from 'scalars.graphql'
 
 """
 A user record
@@ -12,7 +12,7 @@ type User {
   name: String,
 
   "Email address"
-  email: String,
+  email: Email,
 
   "Address foreign key"
   address_id: ObjectId,
@@ -51,7 +51,7 @@ type Mutation {
     name: String,
 
     "Email address"
-    email: String,
+    email: Email,
 
     "Address foreign key"
     address_id: ObjectId
@@ -66,7 +66,7 @@ type Mutation {
     name: String,
 
     "Email address"
-    email: String,
+    email: Email,
 
     "Address primary key"
     address_id: ObjectId
