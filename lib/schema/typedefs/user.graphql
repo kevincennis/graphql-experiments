@@ -10,13 +10,13 @@ type User {
   _id: ObjectId!,
 
   "Full name"
-  name: String,
+  name: String @hasRoles( roles: [ "users:read_name" ] ),
 
   "Email address"
   email: Email,
 
   "Example of a deprecated field"
-  whatever: String @deprecated(reason: "You sux"),
+  whatever: String @deprecated( reason: "You sux" ),
 
   "Address foreign key"
   address_id: ObjectId,
@@ -61,13 +61,13 @@ type Query {
 
     "Pagination limit"
     limit: Int
-  ): [ User ],
+  ): [ User ] @hasRoles( roles: [ "users:list" ] ),
 
   "Find a user by _id"
   getUser(
     "Primary key"
     _id: ObjectId!
-  ): User
+  ): User @hasRoles( roles: [ "users:show" ] )
 }
 
 type Mutation {
@@ -75,7 +75,7 @@ type Mutation {
   createUser(
     "User fields"
     fields: CreateUserInput!
-  ): User,
+  ): User @hasRoles( roles: [ "users:create" ] ),
 
   "Update a user"
   updateUser(
@@ -84,5 +84,5 @@ type Mutation {
 
     "User fields"
     fields: UpdateUserInput!
-  ): User
+  ): User @hasRoles( roles: [ "users:update" ] )
 }

@@ -1,3 +1,7 @@
 directive @deprecated(
   reason: String = "No longer supported"
 ) on FIELD_DEFINITION | ENUM_VALUE
+
+directive @hasRoles(
+  roles: [ String ]
+) on FIELD_DEFINITION
